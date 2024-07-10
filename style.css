@@ -67,3 +67,37 @@ body::before {
     filter: blur(3px); 
     z-index: -1; 
 }
+
+ /* tabs */
+ .tab {
+    overflow: hidden;
+  }
+
+  .tab button {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: #ccc;
+    border-radius: 10px;
+    color: white;
+    padding: 14px 16px;
+    transition: 0.3s;
+    margin: 1px;
+    margin-bottom: 30px;
+  }
+  
+  .tab button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .tabcontent {
+    margin-top: -30px;
+  } 
+
+  .tabcontent {
+    animation: fadeEffect 0.5s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
