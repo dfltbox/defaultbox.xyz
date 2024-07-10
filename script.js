@@ -19,4 +19,6 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
   } 
+
+//function changeBG {}
 //*borrowed* from https://www.w3schools.com/howto/howto_js_tabs.asp
