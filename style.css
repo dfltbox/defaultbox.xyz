@@ -26,8 +26,28 @@ body {
     font-style: normal;
 }
 
+@keyframes yuh {
+   0% {size: 0.5px;}
+   50% {size: 1px;}
+   100% {size: 0.5px;}
+}
+
+.s {
+    color: white
+}
+
+.links {
+    margin-top: -15px;
+}
+
+.link {
+    color: #eb3483;
+}
+
 .name {
-    
+    animation-name: yuh;
+    animation-duration: 3s;
+    color: #8934eb;
 }
 
 a {
