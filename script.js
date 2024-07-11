@@ -46,14 +46,7 @@ function openTab(evt, cityName) {
         }
     `;
     document.head.appendChild(style);
-    var credits;
-    console.log("https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits")
-    fetch("https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits")
-    .then(response => response.text())
-    .then(data => {
-      data = credits;
-    })
-    document.getElementById("credits").href=credits
+    document.getElementById("credits").href="https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits";
     console.log('background changed i think');
 }
 //*borrowed* from https://www.w3schools.com/howto/howto_js_tabs.asp
