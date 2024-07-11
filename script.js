@@ -6,12 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
   for (var i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
   }
-
-
+//i accidentally pushed without comitting
   document.getElementById("defaultOpen").click();
-  setTimeout(changeBG, 5000);
-
-  
+  setTimeout(changeBG, 5000);  
 });
 
 function openTab(evt, cityName) {
