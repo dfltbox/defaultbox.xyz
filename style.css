@@ -24,7 +24,7 @@
 }
 
 footer {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 body {
@@ -103,13 +103,10 @@ body::before {
   }
 
   .tabcontent {
-    margin-top: -30px;
-  } 
-
-  .tabcontent {
-    animation: fadeEffect 0.5s; /* Fading effect takes 1 second */
+    margin-top: -20px;
+    animation: fadeEffect 0.8s; /* Fading effect takes 1 second */
     overflow: auto;
-  }
+  } 
   
   /* Go from zero to full opacity */
   @keyframes fadeEffect {

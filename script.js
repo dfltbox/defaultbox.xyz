@@ -1,13 +1,25 @@
 //stuff for the tabs to work
+
+//this should fix it not hiding elements?
+document.addEventListener("DOMContentLoaded", function() {
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+
+
+  document.getElementById("defaultOpen").click();
+});
+
 function openTab(evt, cityName) {
     // Declare all variables
     var i, tabcontent, tablinks;
-  
-    // Get all elements with class="tabcontent" and hide them
+
+        // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
   
     // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
