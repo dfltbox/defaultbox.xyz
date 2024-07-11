@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   document.getElementById("defaultOpen").click();
+  setTimeout(changeBG, 5000);
+
+  
 });
 
 function openTab(evt, cityName) {
@@ -32,5 +35,17 @@ function openTab(evt, cityName) {
     evt.currentTarget.className += " active";
   } 
 
-//function changeBG {}
+  function changeBG() {
+    var count = Math.floor(Math.random() * 5) + ".jpg?raw=true"
+    var url = "https://github.com/dfltbox/defaultbox.xyz/blob/main/background-images/" + count;
+        var style = document.createElement('style');
+        style.innerHTML = `
+        body::before {
+            background-image: url("${url}");
+        }
+    `;
+    document.head.appendChild(style);
+    console.log('background changed i think');
+}
 //*borrowed* from https://www.w3schools.com/howto/howto_js_tabs.asp
+setTimeout(changeBG, 1000);
