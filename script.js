@@ -1,4 +1,4 @@
-//stuff for the tabs to work
+var count;
 
 //this should fix it not hiding elements?
 document.addEventListener("DOMContentLoaded", function() {
@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 //i accidentally pushed without comitting
   document.getElementById("defaultOpen").click();
-  setTimeout(changeBG, 5000);  
+  setInterval(changeBG, 5000);
+  
 });
 
 function openTab(evt, cityName) {
@@ -33,15 +34,26 @@ function openTab(evt, cityName) {
   } 
 
   function changeBG() {
-    var count = Math.floor(Math.random() * 5) + ".jpg?raw=true"
-    var url = "https://github.com/dfltbox/defaultbox.xyz/blob/main/background-images/" + count;
+    do {
+      count = Math.floor(Math.random() * 5) + ".jpg";
+  } while (count === "0.jpg");
+    var url = "https://github.com/dfltbox/defaultbox.xyz/blob/main/background-images/" + count + "?raw=true"
         var style = document.createElement('style');
         style.innerHTML = `
         body::before {
             background-image: url("${url}");
+            animation: fadeEffect 1s;
         }
     `;
     document.head.appendChild(style);
+    var credits;
+    console.log("https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits")
+    fetch("https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits")
+    .then(response => response.text())
+    .then(data => {
+      data = credits;
+    })
+    document.getElementById("credits").href=credits
     console.log('background changed i think');
 }
 //*borrowed* from https://www.w3schools.com/howto/howto_js_tabs.asp
