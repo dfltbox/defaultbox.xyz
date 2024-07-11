@@ -79,7 +79,7 @@ body::before {
     background-image: url("https://raw.githubusercontent.com/dfltbox/defaultbox.xyz/main/background-images/1.jpg");
     background-size: cover;
     background-position: center;
-    filter: blur(3px); 
+    filter: blur(5px); 
     z-index: -1; 
 }
 

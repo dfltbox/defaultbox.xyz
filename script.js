@@ -34,20 +34,42 @@ function openTab(evt, cityName) {
   } 
 
   function changeBG() {
+    var count;
+    var currentcount;
     do {
-      count = Math.floor(Math.random() * 5) + ".jpg";
-  } while (count === "0.jpg");
-    var url = "https://github.com/dfltbox/defaultbox.xyz/blob/main/background-images/" + count + "?raw=true"
+        count = Math.floor(Math.random() * 5);
+    } while (count == 0 || count == currentcount);
+    currentcount = count
+
+    var url = `https://raw.githubusercontent.com/dfltbox/defaultbox.xyz/main/background-images/${count}.jpg`;
+
+    //i think this caches the image
+    var img = new Image();
+    img.onload = function() {
         var style = document.createElement('style');
         style.innerHTML = `
-        body::before {
-            background-image: url("${url}");
-            animation: fadeEffect 1s;
-        }
-    `;
-    document.head.appendChild(style);
-    document.getElementById("credits").href="https://raw.github.com/dfltbox/defaultbox.xyz/main/background-images/" + count + ".credits";
-    console.log('background changed i think');
+            body::before {
+                background-image: url("${url}");
+                animation: fadeEffect 1s;
+                background-size: cover;
+                background-position: center;
+                filter: blur(5px); 
+                z-index: -1; 
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        `;
+        document.head.appendChild(style);
+        document.getElementById("credits").href = `https://raw.githubusercontent.com/dfltbox/defaultbox.xyz/main/background-images/${count}.jpg.credits`;
+        console.log('background changed i think');
+    };
+    img.src = url;
+    console.log("background actually changed i think")
 }
+
 //*borrowed* from https://www.w3schools.com/howto/howto_js_tabs.asp
 setTimeout(changeBG, 1000);
