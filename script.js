@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //i accidentally pushed without comitting
   document.getElementById("defaultOpen").click();
   setInterval(changeBG, 5000);
-  
+
 });
 
 function openTab(evt, cityName) {
@@ -21,17 +21,17 @@ function openTab(evt, cityName) {
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
       }
-  
+
     // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-  
+
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
-  } 
+  }
 
   function changeBG() {
     var count;
@@ -53,8 +53,8 @@ function openTab(evt, cityName) {
                 animation: fadeEffect 1s;
                 background-size: cover;
                 background-position: center;
-                filter: blur(5px); 
-                z-index: -1; 
+                filter: blur(5px);
+                z-index: -1;
                 content: "";
                 position: absolute;
                 top: 0;
