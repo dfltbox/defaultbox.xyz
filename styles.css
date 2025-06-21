@@ -30,8 +30,8 @@ body {
 }
 
 .neofetch-img {
-    width: 400px;
-    height: 400px;
+    width: 405px;
+    height: 405px;
     object-fit: cover;
     border-radius: 8px;
     margin-top: 8px;
