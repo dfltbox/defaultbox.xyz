@@ -4,27 +4,79 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>soon</title>
+  <title>Default Boxss</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
 <body>
-  <div class="center">
-    <img src="soon.png">
+  <div class="header">
+    <p class="shell">[box@defaultbox.xyz:~]$ <a class="white">neofetch</a></p>
+    <div class="neofetch-flex">
+    <img src="tetoo.gif" class="neofetch-img">
+    <div class="neofetch-info">
+      <p><a class="y">box</a>@<a class="y">defaultbox.xyz</a><br>----------------------<br>
+      <a class="y">Location:</a> Australia<br>
+      <a class="y">Weather:</a> <span id="weather">Loading...</span><br>
+      <a class="y">Pronouns:</a> he/him<br>
+      <a class="y">Socials:</a> 
+        <a href="https://github.com/dfltbox" target="_blank" class="social">Github</a>,
+        <a href="https://steamcommunity.com/profiles/76561199442855215/" target="_blank" class="social">Steam</a>,
+        <a href="https://twitter.com/defaultbox" target="_blank" class="social">Twitter</a>,
+        <a href="https://last.fm/user/defaultbox" target="_blank" class="social">LastFM</a><br>
+      <a class="y">Favourite Artists:</a> glaive, quadeca, kendrick lamar, tyler the creator<br>
+      <a class="y">Favourite Albums:</a> IGOR - tyler, Biblickle - Bickle, a bit of a mad one - glaive, Year of the newt - Bobbing<br>
+      <a class="y">Projects:</a> <a href="https://github.com/dfltbox/vocainfo" target="_blank" class="social">VocaInfo</a><br>
+      <a class="y">GitHub Repos:</a> <span id="repo-count">Loading...</span><br>
+      </p>
+    </div> 
+    </div>
+    <p></p>
+    <p class="shell">[box@defaultbox.xyz:~]$ <a class="white">date</a></p>
+    <p><a id="time"></a><br></p>
+    <script>
+    //get repo count
+    fetch('https://api.github.com/users/dfltbox/repos')
+  .then(response => response.json())
+  .then(repos => {
+    const repocount = Array.isArray(repos) ? repos.length : 0;
+    let repospan = document.getElementById('repo-count');
+    repospan.textContent = repocount > 0 ? `${repocount}` : `N/A`;
+  })
+  //get weather
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=-37.840935&longitude=144.946457&hourly=temperature_2m&current=temperature_2m&forecast_days=1')
+  .then(response => response.json())
+  .then(data => {
+    const currenttemp = data.current.temperature_2m;
+    const currenttempfan = currenttemp * 1.8 + 32;
+    let tempspan = document.getElementById('weather')
+    tempspan.textContent = `${currenttemp}°C / ${currenttempfan.toFixed(1)}°F`;
+  })
+
+  //update time every second
+    function updatetime() {
+      const now = new Date();
+      const timeNow = new Date(now.toLocaleString('en-US', { timeZone: 'Australia/Melbourne' }));
+      const day = timeNow.toLocaleString('en-AU', { weekday: 'short' });
+      const date = timeNow.getDate().toString().padStart(2, '0');
+      const month = timeNow.toLocaleString('en-AU', { month: 'short' });
+      const year = timeNow.getFullYear();
+      const hour = timeNow.getHours().toString().padStart(2, '0');
+      const minute = timeNow.getMinutes().toString().padStart(2, '0');
+      const second = timeNow.getSeconds().toString().padStart(2, '0');
+      const tz = timeNow.toLocaleTimeString('en-au', { timeZone: 'Australia/Melbourne', timeZoneName: 'short' }).split(' ').pop();
+      const formatted = `${day} ${date} ${month} ${year} ${hour}:${minute}:${second} ${tz}`;
+      document.getElementById('time').textContent = formatted;
+    }
+    updatetime();
+    setInterval(updatetime, 1000);
+
+    
+    </script>
   </div>
 </body>
-
-<style>
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
 
 </html>

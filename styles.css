@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+JP+N&display=swap');
+
+body {
+    color: white;
+    background-color: black;
+}
+
+.white {
+    color: white;
+}
+
+.shell {
+    color: green;
+    margin-top: -10px;
+}
+
+.neofetch-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-left: 20px;
+}
+
+.neofetch-info > * {
+    margin: 0;
+}
+
+.y {
+    color: #B13BFF;
+}
+
+.neofetch-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.neofetch-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5em;
+    min-width: 0;
+    margin-top: -0px;
+}
+
+h1, .inline-title {
+    font-family: "WDXL Lubrifont JP N", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 60px;
+    color: green;
+    margin: 0;
+}
+
+.header-inline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.inline-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0;
+}
+
+
+p {
+    font-family: "WDXL Lubrifont JP N", sans-serif;
+    font-style: normal;
+    margin: 1em 0 0 0;
+    margin-left: 20px;
+}
+
+.header {
+    position: relative;
+    padding: 1rem;
+    font-family: sans-serif;
+    font-size: 2rem;
+    margin-left: 20px;
+}
+
+#time {
+    margin-top: -30px;
+}
+
+.aus {
+    color: rgb(43, 43, 248);
+}
+
+a {
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+
+.social {
+    color: #FFCC00;
+}
