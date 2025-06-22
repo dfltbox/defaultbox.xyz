@@ -102,3 +102,20 @@ a {
 .social {
     color: #FFCC00;
 }
+
+@media only screen and (max-width: 600px) {
+    .neofetch-img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 8px;
+        flex-shrink: 0;
+    }
+    p {
+        font-size: 25px;
+    }
+    .date {
+        display: none;
+    }
+  }
